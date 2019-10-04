@@ -1,4 +1,5 @@
 var url = 'https://restcountries.eu/rest/v1/name/';
+var url2 = 'https://restcountries.eu/rest/v1/capital/';
 var countriesList = document.getElementById('countries');
 
 document.getElementById('search').addEventListener('click', searchCountries);
@@ -17,7 +18,7 @@ function showCountriesList(resp) {
     countriesList.innerHTML = '';
     resp.forEach(function(item) {
     	var liEl = document.createElement('li');
-    	liEl.innerText = item.name;
-    	countriesList.appendChild(liEl);
+    	liEl.innerText = item.name + ', ' + item.capital;;
+    	countriesList.appendChild(liEl);	
     });
 }
