@@ -11,7 +11,13 @@ function searchCountries() {
         .then(function(resp) {
             return resp.json();
         })
-        .then(showCountriesList);
+        .then(showCountriesList)
+        .catch(function(error) {
+			countriesList.innerHTML = null;  
+			var status = document.createElement('li');
+			status.innerHTML="Status: 404 Nie znaleziono - proszę wpisz nazwę innego kraju.";
+			countriesList.appendChild(status);
+		});
 }
 
 function showCountriesList(resp) {
